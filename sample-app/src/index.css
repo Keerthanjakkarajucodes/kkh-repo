@@ -1,0 +1,208 @@
+/* LintCanvas Sample App – Intentionally contains CSS bugs for benchmark testing */
+
+/* === RESET === */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* === GLOBAL === */
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #f8fafc;
+  color: #1e293b;
+  line-height: 1.6;
+}
+
+/* === NAVIGATION ===
+   BUG: padding should be 12px 24px, but is set to 48px 24px (too tall)
+*/
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* BUG: padding-top/bottom is 48px instead of 12px */
+  padding: 48px 24px;
+  background: #1e293b;
+  color: #fff;
+}
+
+.nav-brand {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  /* BUG: gap should be 24px, set to 4px — links are squished */
+  gap: 24px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* === HERO ===
+   BUG: max-width is 600px instead of 800px — too narrow
+*/
+.hero {
+  /* BUG: max-width should be 800px */
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  text-align: center;
+}
+
+.hero h1 {
+  /* BUG: font-size should be 48px, set to 16px — too small */
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #0f172a;
+  margin-bottom: 16px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #64748b;
+  margin-bottom: 32px;
+}
+
+/* === CARDS ===
+   BUG: cards grid should have gap: 24px, set to 0 — no spacing between cards
+*/
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* BUG: gap should be 24px */
+  gap: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  /* BUG: padding should be 24px, set to 4px — content is clipped */
+  padding: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.card-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #64748b;
+  /* BUG: text clipping — should be normal, set to ellipsis with overflow hidden */
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* === STATS ===
+   BUG: stats section has wrong background – #ff0000 instead of #f1f5f9
+*/
+.stats-section {
+  /* BUG: wrong background color */
+  background: #ff0000;
+  padding: 60px 24px;
+  text-align: center;
+}
+
+.stats-grid {
+  display: flex;
+  justify-content: center;
+  gap: 64px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.stat-value {
+  font-size: 48px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+/* === FOOTER === */
+.footer {
+  background: #0f172a;
+  color: #94a3b8;
+  text-align: center;
+  /* BUG: padding should be 24px, set to 200px — huge footer */
+  padding: 200px 24px;
+  font-size: 14px;
+}
+
+/* === MOBILE RESPONSIVE ===
+   BUG: at mobile viewport, cards should stack in 1 column but 3-column grid persists
+   (no media query – horizontal overflow on mobile)
+*/
+/* MISSING: @media (max-width: 768px) { .cards-grid { grid-template-columns: 1fr; } } */
+
+/* === HIDDEN ELEMENT BUG ===
+   BUG: .cta-button should be visible, but display is set to none
+*/
+.cta-button {
+  /* BUG: should be display: inline-flex */
+  display: none;
+  align-items: center;
+  gap: 8px;
+  background: #6366f1;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* === ALIGNMENT BUG ===
+   BUG: .badge should be centered (text-align: center) but is text-align: right
+*/
+.badge {
+  display: inline-block;
+  background: #e0e7ff;
+  color: #4338ca;
+  border-radius: 99px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  /* BUG: should be text-align: center */
+  text-align: right;
+  margin-bottom: 16px;
+}
+
+/* === OVERLAP BUG ===
+   .tooltip overlaps .card due to incorrect z-index stacking
+*/
+.tooltip {
+  position: absolute;
+  background: #1e293b;
+  color: #fff;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 12px;
+  /* BUG: should be z-index: 100, but z-index: -1 hides it behind everything */
+  z-index: -1;
+}

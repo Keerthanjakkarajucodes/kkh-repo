@@ -1,0 +1,1 @@
+{"id":"BC-010","description":"CTA button is display:none – hidden element bug","cssFile":"sample-app/src/index.css","brokenCssFile":"sample-app/src/index.css","expectedFindingCategories":["visibility"],"expectedSelector":".cta-button","expectedProperty":"display","expectHumanReview":false,"expectedRepairSuccess":true}

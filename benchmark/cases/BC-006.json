@@ -1,0 +1,1 @@
+{"id":"BC-006","description":"Card padding too small – 4px instead of 24px, content clipped","cssFile":"sample-app/src/index.css","brokenCssFile":"sample-app/src/index.css","expectedFindingCategories":["spacing","text-clipping"],"expectedSelector":".card","expectedProperty":"padding","expectHumanReview":false,"expectedRepairSuccess":true}

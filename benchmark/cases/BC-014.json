@@ -1,0 +1,1 @@
+{"id":"BC-014","description":"Human review: stat layout gap change may break visual balance – no safe auto-fix","cssFile":"sample-app/src/index.css","brokenCssFile":"sample-app/src/index.css","expectedFindingCategories":["spacing"],"expectedSelector":".stats-grid","expectedProperty":"gap","expectHumanReview":true,"expectedRepairSuccess":false}

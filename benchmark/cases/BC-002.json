@@ -1,0 +1,1 @@
+{"id":"BC-002","description":"Nav links gap too small – 4px instead of 24px","cssFile":"sample-app/src/index.css","brokenCssFile":"sample-app/src/index.css","expectedFindingCategories":["spacing"],"expectedSelector":".nav-links","expectedProperty":"gap","expectHumanReview":false,"expectedRepairSuccess":true}

@@ -1,0 +1,1 @@
+{"id":"BC-003","description":"Hero max-width too narrow – 600px instead of 800px","cssFile":"sample-app/src/index.css","brokenCssFile":"sample-app/src/index.css","expectedFindingCategories":["sizing"],"expectedSelector":".hero","expectedProperty":"max-width","expectHumanReview":false,"expectedRepairSuccess":true}

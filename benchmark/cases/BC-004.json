@@ -1,0 +1,1 @@
+{"id":"BC-004","description":"Hero h1 font-size too small – 16px instead of 48px","cssFile":"sample-app/src/index.css","brokenCssFile":"sample-app/src/index.css","expectedFindingCategories":["typography"],"expectedSelector":".hero h1","expectedProperty":"font-size","expectHumanReview":false,"expectedRepairSuccess":true}

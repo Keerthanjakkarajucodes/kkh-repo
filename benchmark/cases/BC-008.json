@@ -1,0 +1,1 @@
+{"id":"BC-008","description":"Stats section background is red instead of light grey – color requires human review","cssFile":"sample-app/src/index.css","brokenCssFile":"sample-app/src/index.css","expectedFindingCategories":["color"],"expectedSelector":".stats-section","expectedProperty":"background","expectHumanReview":true,"expectedRepairSuccess":false}

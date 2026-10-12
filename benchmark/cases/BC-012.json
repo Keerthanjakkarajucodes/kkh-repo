@@ -1,0 +1,1 @@
+{"id":"BC-012","description":"Tooltip z-index is -1 – element hidden behind page content","cssFile":"sample-app/src/index.css","brokenCssFile":"sample-app/src/index.css","expectedFindingCategories":["layout"],"expectedSelector":".tooltip","expectedProperty":"z-index","expectHumanReview":false,"expectedRepairSuccess":true}

@@ -1,0 +1,63 @@
+{
+  "name": "lintcanvas",
+  "version": "0.1.0",
+  "description": "AI-powered UI regression detection and verified repair CLI using Gemma 4",
+  "type": "module",
+  "main": "./dist/index.js",
+  "bin": {
+    "lintcanvas": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/cli.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src --ext .ts",
+    "prepublish": "npm run build"
+  },
+  "dependencies": {
+    "@google/genai": "^1.0.0",
+    "chalk": "^5.4.1",
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.7",
+    "ora": "^8.1.1",
+    "pixelmatch": "^6.0.0",
+    "playwright": "^1.49.1",
+    "pngjs": "^7.0.0",
+    "postcss": "^8.4.49",
+    "postcss-scss": "^4.0.9",
+    "semver": "^7.6.3",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@types/pixelmatch": "^5.2.6",
+    "@types/pngjs": "^6.0.5",
+    "@types/semver": "^7.5.8",
+    "@vitest/coverage-v8": "^2.1.8",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "ui",
+    "regression",
+    "visual-testing",
+    "gemma",
+    "ai",
+    "css",
+    "lint",
+    "playwright",
+    "cli"
+  ],
+  "author": "LintCanvas Contributors",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/lintcanvas"
+  }
+}

@@ -1,0 +1,1 @@
+{"id":"BC-013","description":"Mobile: missing media query causes 3-column grid to overflow horizontally","cssFile":"sample-app/src/index.css","brokenCssFile":"sample-app/src/index.css","expectedFindingCategories":["overflow"],"expectedSelector":".cards-grid","expectedProperty":"grid-template-columns","expectHumanReview":true,"expectedRepairSuccess":false}

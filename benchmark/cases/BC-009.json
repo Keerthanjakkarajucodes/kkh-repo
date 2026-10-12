@@ -1,0 +1,1 @@
+{"id":"BC-009","description":"Footer padding is 200px – massively oversized","cssFile":"sample-app/src/index.css","brokenCssFile":"sample-app/src/index.css","expectedFindingCategories":["spacing"],"expectedSelector":".footer","expectedProperty":"padding","expectHumanReview":false,"expectedRepairSuccess":true}

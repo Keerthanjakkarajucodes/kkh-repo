@@ -1,0 +1,49 @@
+{
+  "timestamp": "2026-10-12T07:00:00.000Z",
+  "config": {
+    "version": "1",
+    "projectRoot": "C:\\Users\\keert\\OneDrive\\Desktop\\First Client\\lintcanvas",
+    "targetUrl": "http://localhost:5173",
+    "referenceDesktop": "sample-app/reference/desktop.png",
+    "viewport": {
+      "desktop": { "width": 1280, "height": 800 },
+      "mobile": { "width": 375, "height": 812 }
+    },
+    "designRules": [],
+    "gemmaModel": "gemma-4-31b-it",
+    "outputDir": ".lintcanvas",
+    "ci": {
+      "failOnWarnings": false,
+      "maxMismatchPercent": 5
+    }
+  },
+  "screenshotBefore": ".lintcanvas\\screenshots\\before.png",
+  "referenceScreenshot": "sample-app\\reference\\desktop.png",
+  "diffResult": {
+    "totalPixels": 1024000,
+    "diffPixels": 256673,
+    "diffPercent": 25.07,
+    "diffRegions": []
+  },
+  "findings": [
+    {
+      "id": "F001",
+      "category": "spacing",
+      "severity": "error",
+      "selector": ".nav",
+      "description": "Navigation padding is 48px 24px instead of 12px 24px (too tall)",
+      "evidence": "Visual diff shows red mismatch bands at top and bottom of nav",
+      "likelyCause": "padding set to 48px 24px in .nav CSS rule",
+      "candidateProperty": "padding",
+      "candidateFile": "sample-app/src/index.css",
+      "candidateLine": 26,
+      "proposedOldValue": "48px 24px",
+      "proposedNewValue": "12px 24px",
+      "confidence": "high",
+      "requiresHumanReview": false
+    }
+  ],
+  "summary": "1 spacing defect identified in navigation bar.",
+  "passedCI": false,
+  "viewport": "desktop"
+}

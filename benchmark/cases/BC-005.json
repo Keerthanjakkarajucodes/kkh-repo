@@ -1,0 +1,1 @@
+{"id":"BC-005","description":"Cards grid gap is 0 – no spacing between cards","cssFile":"sample-app/src/index.css","brokenCssFile":"sample-app/src/index.css","expectedFindingCategories":["spacing"],"expectedSelector":".cards-grid","expectedProperty":"gap","expectHumanReview":false,"expectedRepairSuccess":true}

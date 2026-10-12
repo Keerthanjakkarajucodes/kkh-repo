@@ -1,0 +1,1 @@
+{"id":"BC-011","description":"Badge text-align is right instead of center","cssFile":"sample-app/src/index.css","brokenCssFile":"sample-app/src/index.css","expectedFindingCategories":["alignment"],"expectedSelector":".badge","expectedProperty":"text-align","expectHumanReview":false,"expectedRepairSuccess":true}

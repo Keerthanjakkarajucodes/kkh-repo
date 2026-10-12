@@ -1,0 +1,1 @@
+{"id":"BC-015","description":"Human review: nav brand font-size ambiguous without reference image to confirm intent","cssFile":"sample-app/src/index.css","brokenCssFile":"sample-app/src/index.css","expectedFindingCategories":["typography"],"expectedSelector":".nav-brand","expectedProperty":"font-size","expectHumanReview":true,"expectedRepairSuccess":false}

@@ -1,0 +1,1 @@
+{ "id": "BC-001", "description": "Nav padding too large – 48px instead of 12px", "cssFile": "sample-app/src/index.css", "brokenCssFile": "sample-app/src/index.css", "expectedFindingCategories": ["spacing"], "expectedSelector": ".nav", "expectedProperty": "padding", "expectHumanReview": false, "expectedRepairSuccess": true }

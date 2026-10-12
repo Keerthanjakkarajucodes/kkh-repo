@@ -1,0 +1,6 @@
+.lintcanvas/
+.env
+node_modules/
+dist/
+coverage/
+*.log

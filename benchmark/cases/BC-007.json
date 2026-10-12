@@ -1,0 +1,1 @@
+{"id":"BC-007","description":"Card text white-space nowrap causes text clipping","cssFile":"sample-app/src/index.css","brokenCssFile":"sample-app/src/index.css","expectedFindingCategories":["text-clipping"],"expectedSelector":".card p","expectedProperty":"white-space","expectHumanReview":false,"expectedRepairSuccess":true}

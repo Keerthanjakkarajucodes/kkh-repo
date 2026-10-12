@@ -1,0 +1,24 @@
+{
+  "version": "1",
+  "targetUrl": "http://localhost:5173",
+  "devCommand": "npm --prefix sample-app run dev",
+  "devPort": 5173,
+  "referenceDesktop": "sample-app/reference/desktop.png",
+  "viewport": {
+    "desktop": {
+      "width": 1280,
+      "height": 800
+    },
+    "mobile": {
+      "width": 375,
+      "height": 812
+    }
+  },
+  "designRules": [],
+  "gemmaModel": "gemma-4-31b-it",
+  "outputDir": ".lintcanvas",
+  "ci": {
+    "failOnWarnings": false,
+    "maxMismatchPercent": 5
+  }
+}

@@ -1,0 +1,130 @@
+name: LintCanvas CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run unit tests
+        run: npm test
+
+      - name: Upload test coverage
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage
+          path: coverage/
+
+  typecheck:
+    name: TypeScript Type Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npx tsc --noEmit
+
+  visual-check:
+    name: Visual Regression Check (Sample App)
+    runs-on: ubuntu-latest
+    # Only runs when GEMINI_API_KEY is set (skip in forks / PRs without secrets)
+    if: github.event_name == 'push' && github.repository_owner == github.actor
+    needs: [test]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install CLI dependencies
+        run: npm ci
+
+      - name: Install sample app dependencies
+        run: npm ci
+        working-directory: sample-app
+
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium --with-deps
+
+      - name: Build CLI
+        run: npm run build
+
+      - name: Start sample dev server
+        run: npm run dev &
+        working-directory: sample-app
+        env:
+          CI: true
+
+      - name: Wait for dev server
+        run: npx wait-on http://localhost:5173 --timeout 30000
+
+      - name: Run LintCanvas check (no AI – screenshot + DOM only)
+        run: node dist/cli.js check --url http://localhost:5173 --no-ai
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          LINTCANVAS_DRY_RUN: "true"
+
+      - name: Upload LintCanvas artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lintcanvas-report
+          path: .lintcanvas/
+
+  benchmark:
+    name: Benchmark (Deterministic)
+    runs-on: ubuntu-latest
+    needs: [test]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build CLI
+        run: npm run build
+
+      - name: Run deterministic benchmark
+        run: node dist/cli.js benchmark --cases-dir benchmark/cases
+
+      - name: Upload benchmark results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: benchmark-results
+          path: .lintcanvas/reports/benchmark-*.json
